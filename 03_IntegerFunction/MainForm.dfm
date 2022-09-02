@@ -10,8 +10,6 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
-  PixelsPerInch = 96
   TextHeight = 13
   object Button1: TButton
     Left = 16
@@ -46,13 +44,14 @@ object Form1: TForm1
     TabOrder = 3
     OnClick = btnConvertClick
   end
-  object Button4: TButton
+  object btnRound: TButton
     Left = 320
     Top = 321
     Width = 145
     Height = 25
     Caption = 'Round up / Round down'
     TabOrder = 4
+    OnClick = btnRoundClick
   end
   object edtNumber: TEdit
     Left = 16
@@ -61,14 +60,14 @@ object Form1: TForm1
     Height = 21
     TabOrder = 5
   end
-  object Edit2: TEdit
+  object edtNum1: TEdit
     Left = 16
     Top = 363
     Width = 81
     Height = 21
     TabOrder = 6
   end
-  object Edit3: TEdit
+  object edtNum2: TEdit
     Left = 103
     Top = 363
     Width = 81
@@ -82,6 +81,7 @@ object Form1: TForm1
     Height = 25
     Caption = '+'
     TabOrder = 8
+    OnClick = Button5Click
   end
   object Button6: TButton
     Left = 255
@@ -90,6 +90,7 @@ object Form1: TForm1
     Height = 25
     Caption = '-'
     TabOrder = 9
+    OnClick = Button6Click
   end
   object Button7: TButton
     Left = 320
@@ -98,6 +99,7 @@ object Form1: TForm1
     Height = 25
     Caption = '*'
     TabOrder = 10
+    OnClick = Button7Click
   end
   object Button8: TButton
     Left = 385
@@ -106,8 +108,9 @@ object Form1: TForm1
     Height = 25
     Caption = '/'
     TabOrder = 11
+    OnClick = Button8Click
   end
-  object Edit4: TEdit
+  object edtResult: TEdit
     Left = 16
     Top = 390
     Width = 168
@@ -122,6 +125,7 @@ object Form1: TForm1
     Height = 25
     Caption = 'Div'
     TabOrder = 13
+    OnClick = Button9Click
   end
   object Button10: TButton
     Left = 320
@@ -130,5 +134,6 @@ object Form1: TForm1
     Height = 25
     Caption = 'Mod'
     TabOrder = 14
+    OnClick = Button10Click
   end
 end

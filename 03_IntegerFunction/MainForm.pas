@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.Math;
 
 type
   TForm1 = class(TForm)
@@ -12,19 +12,26 @@ type
     Memo1: TMemo;
     Button2: TButton;
     btnConvert: TButton;
-    Button4: TButton;
+    btnRound: TButton;
     edtNumber: TEdit;
-    Edit2: TEdit;
-    Edit3: TEdit;
+    edtNum1: TEdit;
+    edtNum2: TEdit;
     Button5: TButton;
     Button6: TButton;
     Button7: TButton;
     Button8: TButton;
-    Edit4: TEdit;
+    edtResult: TEdit;
     Button9: TButton;
     Button10: TButton;
     procedure Button2Click(Sender: TObject);
     procedure btnConvertClick(Sender: TObject);
+    procedure btnRoundClick(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
 //    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
@@ -88,6 +95,8 @@ begin
 
 end;
 
+
+
 procedure TForm1.Button2Click(Sender: TObject);
 var
   S: Single;
@@ -111,6 +120,111 @@ begin
   Memo1.Lines.Add('Single: ' + FloatToStr(SIngle(1234.625)));
   Memo1.Lines.Add('');
 
+end;
+
+procedure TForm1.btnRoundClick(Sender: TObject);
+var
+  I: Integer;
+  S: Single;
+begin
+  Memo1.Lines.Clear;
+
+  S := StrToFloatDef(edtNumber.Text, 3.5);
+
+  I := Trunc(S);
+  Memo1.Lines.Add('Trunc: ' + IntToStr(I));
+
+  I := Round(S);
+  Memo1.Lines.Add('Round: ' + IntToStr(I));
+
+  I := Floor(S);
+  Memo1.Lines.Add('Floor: ' + IntToStr(I));
+
+  I := Ceil(S);
+  Memo1.Lines.Add('Ceil: ' + IntToStr(I));
+
+  S := Abs(S);
+  Memo1.Lines.Add('Abs: ' + FloatToStr(S));
+end;
+
+
+// +
+procedure TForm1.Button5Click(Sender: TObject);
+var
+  Num1, Num2, Value: Integer;
+begin
+  Num1 := StrToInt(edtNum1.Text);
+  Num2 := StrTOInt(edtNum2.Text);
+
+  Value := Num1 + Num2;
+
+  edtResult.Text := IntToStr(Value);
+end;
+
+// -
+procedure TForm1.Button6Click(Sender: TObject);
+var
+  Num1, Num2, Value: Integer;
+begin
+  Num1 := StrToInt(edtNum1.Text);
+  Num2 := StrTOInt(edtNum2.Text);
+
+  Value := Num1 - Num2;
+
+  edtResult.Text := IntToStr(Value);
+end;
+
+// *
+procedure TForm1.Button7Click(Sender: TObject);
+var
+  Num1, Num2, Value: Integer;
+begin
+  Num1 := StrToInt(edtNum1.Text);
+  Num2 := StrTOInt(edtNum2.Text);
+
+  Value := Num1 * Num2;
+
+  edtResult.Text := IntToStr(Value);
+end;
+
+// /
+procedure TForm1.Button8Click(Sender: TObject);
+var
+  Num1, Num2: Integer;
+  Value: Single;
+begin
+  Num1 := StrToInt(edtNum1.Text);
+  Num2 := StrTOInt(edtNum2.Text);
+
+  Value := Num1 / Num2;
+
+  edtResult.Text := FloatToStr(Value);
+end;
+
+// div
+procedure TForm1.Button9Click(Sender: TObject);
+var
+  Num1, Num2, Value: Integer;
+begin
+  Num1 := StrToInt(edtNum1.Text);
+  Num2 := StrTOInt(edtNum2.Text);
+
+  Value := Num1 div Num2;
+
+  edtResult.Text := IntToStr(Value);
+end;
+
+// mod
+procedure TForm1.Button10Click(Sender: TObject);
+var
+  Num1, Num2, Value: Integer;
+begin
+  Num1 := StrToInt(edtNum1.Text);
+  Num2 := StrTOInt(edtNum2.Text);
+
+  Value := Num1 mod Num2;
+
+  edtResult.Text := IntToStr(Value);
 end;
 
 end.
